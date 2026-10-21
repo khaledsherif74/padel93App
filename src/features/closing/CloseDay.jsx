@@ -17,6 +17,7 @@ export default function CloseDay({ shift, summary, canEdit, unresolvedCount, onC
   const action = useAction();
   if (!canEdit) return null;
 
+  const noteTooShort = note.trim().length > 0 && note.trim().length < 3; // the server needs 3+ characters or nothing
   const cash = summary?.cash?.expectedCash; // hidden while the owner keeps the expected cash blind
 
   const confirm = async () => {
@@ -32,11 +33,11 @@ export default function CloseDay({ shift, summary, canEdit, unresolvedCount, onC
     <Section title={t('close.title')}>
       <Button variant="primary" onClick={() => setConfirming(true)}>{t('close.action')}</Button>
       {confirming && (
-        <FormDialog title={t('close.confirmTitle')} submitLabel={t('close.confirm')} busy={action.busy} error={action.error} onClose={() => setConfirming(false)} onSubmit={() => action.run(confirm)}>
+        <FormDialog title={t('close.confirmTitle')} submitLabel={t('close.confirm')} busy={action.busy} error={action.error} disabled={noteTooShort} onClose={() => setConfirming(false)} onSubmit={() => action.run(confirm)}>
           {cash != null && <p>{t('close.cash', { amount: formatEgp(cash) })}</p>}
           {unresolvedCount > 0 && <p>{t('close.unresolved', { n: unresolvedCount })}</p>}
           <p>{t('close.final')}</p>
-          <Field label={t('close.note')}>
+          <Field label={t('close.note')} hint={t('close.noteHint')}>
             <textarea rows={2} value={note} onChange={(e) => setNote(e.target.value)} />
           </Field>
         </FormDialog>

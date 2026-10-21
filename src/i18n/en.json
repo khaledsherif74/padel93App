@@ -145,5 +145,6 @@
   "close.unresolved": "{n} booking(s) are not settled yet.",
   "close.final": "After closing you cannot change anything. Only the owner can reopen the day.",
   "close.note": "Note for the owner (optional)",
-  "close.cash": "The system counts {amount} in the drawer."
+  "close.cash": "The system counts {amount} in the drawer.",
+  "close.noteHint": "Leave empty, or write at least 3 characters."
 }
