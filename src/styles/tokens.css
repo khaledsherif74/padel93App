@@ -1,0 +1,30 @@
+/* Brand palette: https://padel93.com/wp-content/ide/padel93colors.html (hex values checked against its RGB values) */
+:root {
+  --navy: #002346;
+  --night: #00183e;
+  --court-blue: #275e97;
+  --edge-blue: #01649b;
+  --ball-green: #92c64c; /* calls to action and rewards only */
+  --court-white: #f4f7fa;
+
+  /* NOT in the brand guide: working colours for money problems. Confirm or replace with design. */
+  --danger: #b3261e;
+  --danger-bg: #fbeae8;
+  --warn: #8a5a00;
+  --warn-bg: #fff3db;
+
+  --ink: var(--navy);
+  --muted: #4d6179;
+  --line: rgb(0 35 70 / 0.14);
+  --surface: #ffffff;
+
+  --font-head: 'Cairo', system-ui, sans-serif;
+  --font-body: 'Tajawal', system-ui, sans-serif;
+
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --radius: 6px;
+}
